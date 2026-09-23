@@ -1,7 +1,7 @@
 {
   "name": "vela",
   "version": "0.1.0",
-  "description": "Vela - AI 深度驱动的小说创作 IDE",
+  "description": "Vela - An AI-powered novel writing IDE",
   "author": "heider",
   "private": true,
   "type": "module",
