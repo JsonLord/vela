@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vela — AI Novel Writing IDE</title>
   </head>
   <body style="margin: 0;">
-    <!-- 同步读取主题，避免加载页与主界面背景色闪跳 -->
+    <!-- Read the theme synchronously to prevent a background flash while loading. -->
     <script>
       (function() {
         var bgMap = { light: '#F7F9FC', galaxy: '#0A1628', paper: '#F5F0E8', dark: '#1E1E1E' };
@@ -16,18 +16,18 @@
           if (raw) {
             var state = JSON.parse(raw).state;
             theme = state.resolvedTheme || state.theme || 'dark';
-            if (theme === 'night') theme = 'dark'; // 兼容旧版
+            if (theme === 'night') theme = 'dark'; // Backward compatibility
           }
         } catch(e) {}
         
         var bg = bgMap[theme] || bgMap.galaxy;
         
-        // 提前给 html 注入主题 class，确保所有全局 CSS 变量立即生效
+        // Apply the theme class early so all global CSS variables take effect immediately.
         document.documentElement.classList.remove('light', 'dark', 'galaxy', 'paper');
         document.documentElement.classList.add(theme);
         
         document.body.style.backgroundColor = bg;
-        /* 将背景色注入 CSS 变量供 .vela-initial-loader 引用 */
+        /* Expose the background as a CSS variable for the initial loader. */
         document.documentElement.style.setProperty('--loader-bg', bg);
       })();
     </script>

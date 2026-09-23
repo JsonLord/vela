@@ -95,17 +95,17 @@ describe('i18n Initialization', () => {
     expect(i18n.isInitialized).toBe(true)
   })
 
-  it('should have zh-CN as default language', () => {
-    expect(i18n.language).toBe('zh-CN')
+  it('should have English as default language', () => {
+    expect(i18n.language).toBe('en')
   })
 
-  it('should have zh-CN as fallback language', () => {
+  it('should have English as fallback language', () => {
     const fallback = i18n.options.fallbackLng
     // fallbackLng can be string or array
     if (Array.isArray(fallback)) {
-      expect(fallback).toContain('zh-CN')
+      expect(fallback).toContain('en')
     } else {
-      expect(fallback).toBe('zh-CN')
+      expect(fallback).toBe('en')
     }
   })
 

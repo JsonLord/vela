@@ -29,6 +29,17 @@ import ruStores from './locales/ru/stores.json'
 import ruSettings from './locales/ru/settings.json'
 
 const isBrowser = typeof window !== 'undefined' && typeof document !== 'undefined'
+const supportedLanguages = ['en', 'zh-CN', 'ru'] as const
+type SupportedLanguage = (typeof supportedLanguages)[number]
+
+function getInitialLanguage(): SupportedLanguage {
+  if (!isBrowser) return 'en'
+
+  const savedLanguage = window.localStorage.getItem('vela-locale')
+  return supportedLanguages.includes(savedLanguage as SupportedLanguage)
+    ? savedLanguage as SupportedLanguage
+    : 'en'
+}
 
 const i18nConfig: Parameters<typeof i18n.init>[0] = {
   resources: {
@@ -63,7 +74,8 @@ const i18nConfig: Parameters<typeof i18n.init>[0] = {
       settings: ruSettings,
     },
   },
-  fallbackLng: 'zh-CN',
+  lng: getInitialLanguage(),
+  fallbackLng: 'en',
   ns: ['common', 'dialogs', 'editors', 'panels', 'layout', 'pages', 'stores', 'settings'],
   defaultNS: 'common',
   interpolation: {
@@ -99,7 +111,7 @@ if (isBrowser) {
       'en': 'Vela — AI Novel Writing IDE',
       'zh-CN': 'Vela — AI 小说创作 IDE',
     }
-    document.title = titles[lng] || titles['zh-CN']
+    document.title = titles[lng] || titles.en
   })
 }
 

@@ -9,7 +9,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-6-3178C6.svg)](https://www.typescriptlang.org/)
 [![License: GPL-3.0](https://img.shields.io/badge/License-GPLv3-yellow.svg)](https://opensource.org/licenses/GPL-3.0)
 
-[Read in Chinese (中文)](README.md) | [Read in English](README_EN.md)
+[Read in Chinese](README_ZH.md) | [Read in English](README.md)
 
 [Скачать](#установка) | [Поддержать проект](#поддержка)
 
