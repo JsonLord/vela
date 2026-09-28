@@ -1,3 +1,9 @@
+---
+title: Velo
+sdk: docker
+app_port: 7860
+---
+
 <div align="center">
 
 # Vela — AI Novel Writing IDE
